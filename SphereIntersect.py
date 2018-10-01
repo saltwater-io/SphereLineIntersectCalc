@@ -2,11 +2,11 @@ from math import sqrt
 
 # This function gets line intersects of a sphere, v1 = coordinates of first part of line
 # V2 = second part of line and v3 & radius make up the sphere
-# v1 = (x1,y1,z1) v2 = [x2, y2, z2] v3 = [x3,y3,z3] radius = 3
+# v1 = [x1,y1,z1] v2  =[x2,y2,z2] v3 = [x3,y3,z3] radius = 3
 def getSphereIntersects(v1, v2, v3):
 
     # gets A, B, and C values for the quadratic equation:
-    # Sphere = (x - x3)2 + (y - y3)2 + (z - z3)2 = r2
+    # Sphere = (x - x3)^2 + (y - y3)^2 + (z - z3)^2 = r^2
     # ax^2 + bx + c = 0
 
     radius = 3
@@ -64,9 +64,9 @@ def getString(list):  # Formats output
     return printOut
 
 def main():  # Runs program
-    v1 = [1, 0, 1]
-    v2 = [2, 1, 3]
-    v3 = [0, 0, 0]
+    v1 = [1, 0, 1]  #First Line point
+    v2 = [2, 1, 3]  #2nd Line Point
+    v3 = [0, 0, 0]  #Sphere point
     getSphereIntersects(v1, v2, v3)
 
 if __name__ == "__main__":
