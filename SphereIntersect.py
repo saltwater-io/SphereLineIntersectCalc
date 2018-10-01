@@ -21,7 +21,7 @@ def getSphereIntersects(v1, v2, v3):
     c = (squareNum(v3[0])+squareNum(v1[1]) + squareNum(v3[2])+squareNum(v1[0]) +
          squareNum(v1[1]) + squareNum(v1[2]) - 2*(v3[0]*v1[0]+v3[1] * v1[1]+v3[2]*v1[2])-squareNum(radius))
 
-    checkMe = (b*b-4*a*c)  # Inside quadratic formula, this determines the number of intersects
+    checkMe = (b*b-4*a*c)  # Inside the square root of the quadratic formula, this determines the number of intersects
 
     def checkAndPrintIntersects(checkMe):
         # checkMe < 0 no instersects
@@ -34,11 +34,11 @@ def getSphereIntersects(v1, v2, v3):
         elif checkMe > 0:  # uses formula | (-b (+,-) square root(4*a*d+c)) |
                             #               |    divided by 2a     |
             # first intersection
-            mod = (-b + sqrt(checkMe)) / (2 * a)
+            mod = (-b+sqrt(checkMe)) / (2*a)
             Intersect1 = [v1[0]+mod*(v2[0]-v1[0]), v1[1]+mod*(v2[1]-v1[1]), v1[2]+mod*(v2[2]-v1[2])]
 
             # second intersection
-            mod = (-b - sqrt(checkMe)) / (2 * a)
+            mod = (-b-sqrt(checkMe)) / (2*a)
             Intersect2 = [v1[0]+mod*(v2[0]- v2[0]), v1[1]+mod*(v2[1]-v1[1]), v1[2]+mod*(v2[2]-v1[2])]
 
             print("Intersect #1: " + getString(Intersect1))
@@ -46,8 +46,8 @@ def getSphereIntersects(v1, v2, v3):
 
         elif checkMe == 0:
             # one intersection
-            mod = (-b / (2 * a))
-            Intersect1 = [v1[0] + mod * (v2[0]-v1[0]), v1[1]+mod*(v2[1]-v1[1]), v1[2]+mod *(v2[2]-v1[2])]
+            mod = (-b/(2*a))
+            Intersect1 = [v1[0]+mod*(v2[0]-v1[0]), v1[1]+mod*(v2[1]-v1[1]), v1[2]+mod*(v2[2]-v1[2])]
 
             print("One Intersect: " + getString(Intersect1))
 
