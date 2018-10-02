@@ -3,6 +3,7 @@ from math import sqrt
 # This function gets line intersects of a sphere, v1 = coordinates of first part of line
 # V2 = second part of line and v3 & radius make up the sphere
 # v1 = [x1,y1,z1] v2  =[x2,y2,z2] v3 = [x3,y3,z3] radius = 3
+
 def getSphereIntersects(v1, v2, v3):
 
     # gets A, B, and C values for the quadratic equation:
@@ -27,7 +28,7 @@ def getSphereIntersects(v1, v2, v3):
     mod2 = ((-b-sqrt(checkMe)) / (2*a))  # If 2 intersects, for use in second intersection calculation
     mod3 = (-b/(2*a))  # One intersect = 4*a*c not used in solution
 
-    def checkAndPrintIntersects(checkMe):
+    def checkAndPrintIntersects(checkMe, mod1, mod2, mod3):
         # checkMe < 0 no instersects
         # checkMe > 0 2 intersects
         # checkMe = 0 Line is tangent to sphere = 1 intersect
@@ -55,23 +56,29 @@ def getSphereIntersects(v1, v2, v3):
 
             print("One Intersect: " + getString(Intersect1))
 
-    checkAndPrintIntersects(checkMe)
+    checkAndPrintIntersects(checkMe, mod1, mod2, mod3)
 
 
-def squareNum(num):  # Mutltiplies a givin number by itself
+def squareNum(num):  # Mutltiplys a given number by itself
     return num*num
 
-def getString(list):  # Formats output
-    printOut = ""
+
+def getString(list):   # Formats output
+    printOut = "<"
     for point in list:
-        printOut = printOut + " " + str(point)
+        printOut = printOut + " " + str(point) + ","
+    printOut.lstrip(",")
+    printOut = printOut + ">"
     return printOut
+
 
 def main():  # Runs program
     v1 = [1, 0, 1]  #First Line point
     v2 = [2, 1, 3]  #2nd Line Point
     v3 = [0, 0, 0]  #Sphere point
     getSphereIntersects(v1, v2, v3)
+    
 
 if __name__ == "__main__":
     main()
+    pass
